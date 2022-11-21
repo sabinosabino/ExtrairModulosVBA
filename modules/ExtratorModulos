@@ -13,7 +13,7 @@ Debug.Print "SUCESSO!!!"
 ActiveWorkbook.FollowHyperlink ActiveWorkbook.Path & "\modules", , True
 Exit Sub
 1:
-MsgBox Err.Description, vbCritical, "Atenção"
+MsgBox Err.Description, vbCritical, "Atenção."
 End Sub
 Private Function VerificaPastaExiste() As Boolean
 Dim fso As Object
@@ -31,6 +31,12 @@ End If
 
 End Function
 
+Public Sub ComandoGit()
+Dim strCMD As String
+Set objShell = CreateObject("WScript.Shell")
+strCMD = "cd " & ActiveWorkbook.Path & "; git add . ; git commit -m """ & "add -" & Now & """; git push"
+Debug.Print strCMD
+End Sub
 Public Sub ExecultarExtracao()
 Call Extrair
 End Sub
