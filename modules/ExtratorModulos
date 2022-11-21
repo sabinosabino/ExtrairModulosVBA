@@ -54,7 +54,6 @@ Private Sub ComandoGit(Optional comentario As String)
     cmm = cmm & " & " & ActiveWorkbook.FullName
     cmm = cmm & " & " & "exit"
     Call VBA.SendKeys(cmm)
-    Call VBA.SendKeys("{F2}")
     ThisWorkbook.Save
     Application.Quit
 End Sub
