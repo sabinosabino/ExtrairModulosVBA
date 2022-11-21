@@ -1,1 +1,4 @@
 Attribute VB_Name = "Módulo1"
+Sub teste()
+
+End Sub
