@@ -1,0 +1,6 @@
+Attribute VB_Name = "m1"
+Option Compare Database
+
+Sub teste()
+
+End Sub
