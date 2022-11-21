@@ -1,14 +1,16 @@
 Attribute VB_Name = "ExtratorModulos"
-Private Vbcoms As VBIDE.VBComponents
-Private Vbcom As VBIDE.VBComponent
+Private Vbcoms As Object
+Private Vbcom As Object
 Private Sub Extrair()
 On Error GoTo 1
 Set Vbcoms = Application.VBE.ActiveVBProject.VBComponents
 If VerificaPastaExiste Then
     For Each Vbcom In Vbcoms
-        Vbcom.Export CurrentProject.Path & "\modules\" & Vbcom.Name
+        Vbcom.Export ActiveWorkbook.Path & "\modules\" & Vbcom.Name
     Next
 End If
+Debug.Print "SUCESSO!!!"
+ActiveWorkbook.FollowHyperlink ActiveWorkbook.Path & "\modules", , True
 Exit Sub
 1:
 MsgBox Err.Description, vbCritical, "Atenção"
@@ -16,7 +18,7 @@ End Sub
 Private Function VerificaPastaExiste() As Boolean
 Dim fso As Object
 Dim caminho As String
-caminho = CurrentProject.Path & "\modules"
+caminho = ActiveWorkbook.Path & "\modules"
 Set fso = CreateObject("Scripting.FileSystemObject")
 If fso.FolderExists(caminho) Then
     Call fso.DeleteFolder(caminho)
