@@ -40,7 +40,7 @@ Else
 End If
 
 End Function
-Public Sub comitar()
+Public Sub ComitarProjeto()
 Call Extrair
 End Sub
 Private Sub ComandoGit(Optional comentario As String)
