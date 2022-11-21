@@ -16,8 +16,10 @@ If VerificaPastaExiste Then
     Next
 End If
 Debug.Print "SUCESSO!!!"
+Dim comentario As String
+comentario = InputBox("Informe um comentário (Optional)", "Commit")
 If MsgBox("Deseja commitar?", vbYesNo, "Atenção") = vbYes Then
-    Call ComandoGit
+    Call ComandoGit(comentario)
 End If
 Exit Sub
 1:
@@ -41,13 +43,13 @@ End Function
 Public Sub ExecultarExtracao()
 Call Extrair
 End Sub
-Private Sub ComandoGit()
+Private Sub ComandoGit(Optional comentario As String)
     Dim cmm As String
     Call Shell("cmd.exe /S /K" & "perl a.pl c:\temp", vbNormalFocus)
     Call Sleep(1000)
     cmm = "cd " & ActiveWorkbook.Path
     cmm = cmm & " & " & "git add ."
-    cmm = cmm & " & " & "git commit -m """ & Format(Now, "dd-mm-yyyy hh_mm_ss") & """"
+    cmm = cmm & " & " & "git commit -m """ & comentario & "-" & Format(Now, "dd-mm-yyyy hh_mm_ss") & """"
     cmm = cmm & " & " & "git push"
     cmm = cmm & " & " & ActiveWorkbook.FullName
     cmm = cmm & " & " & "exit"
