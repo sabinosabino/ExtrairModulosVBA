@@ -17,8 +17,8 @@ If VerificaPastaExiste Then
 End If
 Debug.Print "SUCESSO!!!"
 Dim comentario As String
-comentario = InputBox("Informe um comentário (Optional)", "Commit")
 If MsgBox("Deseja commitar?", vbYesNo, "Atenção") = vbYes Then
+    comentario = InputBox("Informe um comentário (Optional)", "Commit")
     Call ComandoGit(comentario)
 End If
 Exit Sub
