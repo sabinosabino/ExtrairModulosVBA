@@ -20,6 +20,7 @@ Dim comentario As String
 If MsgBox("Deseja comitar?", vbYesNo, "Atenção") = vbYes Then
     comentario = InputBox("Informe um comentário (Optional)", "Commit")
     Call ComandoGit(comentario)
+    'comentario
 End If
 Exit Sub
 1:
