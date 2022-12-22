@@ -22,14 +22,14 @@ If VerificaPastaExiste Then
 End If
 Debug.Print "SUCESSO!!!"
 Dim comentario As String
-If MsgBox("Deseja comitar?", vbYesNo, "AtenÁ„o") = vbYes Then
-    comentario = InputBox("Informe um coment·rio (Optional)", "Commit")
+If MsgBox("Deseja comitar?", vbYesNo, "Aten√ß√£o") = vbYes Then
+    comentario = InputBox("Informe um coment√°rio (Optional)", "Commit")
     Call ComandoGit(comentario)
     'comentario
 End If
 Exit Sub
 1:
-MsgBox Err.Description, vbCritical, "AtenÁ„o."
+MsgBox Err.Description, vbCritical, "Aten√ß√£o."
 End Sub
 Private Function VerificaPastaExiste() As Boolean
 Dim fso As Object
@@ -61,6 +61,7 @@ Private Sub ComandoGit(Optional comentario As String)
     cmm = cmm & " & " & ActiveWorkbook.FullName
     cmm = cmm & " & " & "exit"
     Call VBA.SendKeys(cmm)
+    Call VBA.SendKeys("{NUMLOCK}")
     ThisWorkbook.Save
     Application.Quit
 End Sub
